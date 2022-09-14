@@ -1,4 +1,4 @@
-import { Button, Flex, Link } from "@chakra-ui/core";
+import { Button, Flex, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
 
 export default function NavBar() {

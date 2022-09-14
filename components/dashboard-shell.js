@@ -7,10 +7,11 @@ import {
   BreadcrumbLink,
   Flex,
   Heading,
-  Icon,
   Link,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import NextLink from "next/link";
+import AddSiteModal from "./add-site-modal";
+import Logo from "./logo";
 
 export default function DashboardShell({ children }) {
   const { user } = useAuth();
@@ -32,7 +33,7 @@ export default function DashboardShell({ children }) {
           <Flex align="center">
             <NextLink href="/" passHref>
               <Link>
-                <Icon name="logo" size="24px" mr={8} />
+                <Logo />
               </Link>
             </NextLink>
           </Flex>
@@ -52,6 +53,7 @@ export default function DashboardShell({ children }) {
           </BreadcrumbItem>
         </Breadcrumb>
         <Heading color="black">Sites</Heading>
+        <AddSiteModal />
         {children}
       </Flex>
     </Box>

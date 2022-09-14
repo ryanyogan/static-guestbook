@@ -1,4 +1,4 @@
-import { Button, Flex } from "@chakra-ui/core";
+import { Button, Flex } from "@chakra-ui/react";
 import Head from "next/head";
 
 import { useAuth } from "../lib/auth";

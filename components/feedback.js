@@ -1,4 +1,4 @@
-import { Box, Divider, Heading, Text } from "@chakra-ui/core";
+import { Box, Divider, Heading, Text } from "@chakra-ui/react";
 import { format, parseISO } from "date-fns";
 
 export default function Feedback({ author, text, createdAt }) {

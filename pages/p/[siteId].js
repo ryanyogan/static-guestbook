@@ -1,5 +1,5 @@
 import Feedback from "@/components/feedback";
-import { Box, Button, FormControl, FormLabel, Input } from "@chakra-ui/core";
+import { Box, Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../../lib/auth";

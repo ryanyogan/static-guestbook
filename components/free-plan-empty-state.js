@@ -1,4 +1,4 @@
-import { Box, Button, Heading, Text } from "@chakra-ui/core";
+import { Box, Button, Heading, Text } from "@chakra-ui/react";
 import DashboardShell from "./dashboard-shell";
 
 export default function FreePlanEmptyState() {
