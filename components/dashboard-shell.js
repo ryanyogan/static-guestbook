@@ -8,6 +8,7 @@ import {
   Flex,
   Heading,
   Link,
+  useDisclosure,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import AddSiteModal from "./add-site-modal";
@@ -15,6 +16,7 @@ import Logo from "./logo";
 
 export default function DashboardShell({ children }) {
   const { user } = useAuth();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Box backgroundColor="gray.100" h="100vh">
@@ -46,14 +48,21 @@ export default function DashboardShell({ children }) {
           </Flex>
         </Flex>
       </Flex>
-      <Flex margin="0 auto" direction="column" maxW={"1250px"} px={[0, 8, 8]}>
+      <Flex margin="0 auto" direction="column" maxW={"1250px"} px={8}>
         <Breadcrumb>
-          <BreadcrumbItem isCurrentPage={true}>
-            <BreadcrumbLink color="gray.700">Sites</BreadcrumbLink>
+          <BreadcrumbItem>
+            <BreadcrumbLink>Sites</BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>
-        <Heading color="black">Sites</Heading>
-        <AddSiteModal />
+        <Flex justifyContent="space-between">
+          <Heading mb={8}>My Sites</Heading>
+          <AddSiteModal
+            text="+ Add Site"
+            isOpen={isOpen}
+            onClose={onClose}
+            onOpen={onOpen}
+          />
+        </Flex>
         {children}
       </Flex>
     </Box>

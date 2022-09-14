@@ -18,8 +18,14 @@ import {
 } from "@chakra-ui/react";
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
+import { mutate } from "swr";
 
-export default function AddSiteModal({ isOpen, onClose }) {
+export default function AddSiteModal({
+  isOpen,
+  onClose,
+  onOpen,
+  text = "Add Your First Site",
+}) {
   const initialRef = useRef(null);
   const finalRef = useRef(null);
   const toast = useToast();
@@ -31,13 +37,20 @@ export default function AddSiteModal({ isOpen, onClose }) {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = ({ site, url }) => {
-    createSite({
+  const onSubmit = ({ name, url }) => {
+    const newSite = {
       authorId: auth.user.uid,
       createdAt: new Date().toISOString(),
-      site,
+      name,
       url,
-    });
+      // settings: {
+      //   icons: true,
+      //   timestamp: true,
+      //   ratings: false
+      // }
+    };
+
+    const { id } = createSite(newSite);
 
     toast({
       title: "Success!",
@@ -46,10 +59,33 @@ export default function AddSiteModal({ isOpen, onClose }) {
       duration: 5000,
       isClosable: true,
     });
+
+    mutate(
+      "/api/sites",
+      async (data) => ({
+        sites: [{ id, ...newSite }, ...data.sites],
+      }),
+      false
+    );
+
+    onClose();
   };
 
   return (
     <>
+      <Button
+        onClick={onOpen}
+        backgroundColor="gray.900"
+        color="white"
+        fontWeight="medium"
+        _hover={{ bg: "gray.700" }}
+        _active={{
+          bg: "gray.800",
+          transform: "scale(0.95)",
+        }}
+      >
+        {text}
+      </Button>
       <Modal
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}
@@ -67,13 +103,13 @@ export default function AddSiteModal({ isOpen, onClose }) {
                 type="text"
                 ref={initialRef}
                 placeholder="My Blog"
-                name="site"
-                {...register("site", {
+                name="name"
+                {...register("name", {
                   required: true,
                   minLength: 2,
                 })}
               />
-              {!errors.site ? (
+              {!errors.name ? (
                 <FormHelperText>You may change this anytime.</FormHelperText>
               ) : (
                 <FormErrorMessage>Site name is required.</FormErrorMessage>
