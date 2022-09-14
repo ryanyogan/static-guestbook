@@ -1,4 +1,4 @@
-import { Button, Code, Heading, Text } from "@chakra-ui/core";
+import { Button, Flex } from "@chakra-ui/core";
 import Head from "next/head";
 
 import { useAuth } from "../lib/auth";
@@ -7,26 +7,36 @@ export default function Index() {
   const auth = useAuth();
 
   return (
-    <div className="container">
+    <Flex
+      as="main"
+      direction="column"
+      align="center"
+      justify="center"
+      h="100vh"
+    >
       <Head>
         <title>Fast Feedback (React 2025)</title>
       </Head>
 
-      <main>
-        <Heading>Fast Feedback</Heading>
-
-        <Text>
-          Current User: <Code>{auth.user ? auth.user.email : "None"}</Code>
-        </Text>
-        {auth.user ? (
-          <div>
-            <p>Email: {auth.user.email}</p>
-            <Button onClick={(e) => auth.signout()}>Sign out</Button>
-          </div>
-        ) : (
-          <Button onClick={(e) => auth.signinWithGithub()}>Sign In</Button>
-        )}
-      </main>
-    </div>
+      {auth.user ? (
+        <Button
+          backgroundColor="black"
+          color="white"
+          mt={4}
+          onClick={(e) => auth.signOut()}
+        >
+          Sign Out
+        </Button>
+      ) : (
+        <Button
+          backgroundColor="black"
+          color="white"
+          mt={4}
+          onClick={(e) => auth.signinWithGithub()}
+        >
+          Sign In
+        </Button>
+      )}
+    </Flex>
   );
 }
