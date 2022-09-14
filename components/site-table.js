@@ -1,6 +1,6 @@
 import { Box, Link } from "@chakra-ui/react";
 import { format, parseISO } from "date-fns";
-import { Table, Td, Th, Tr } from "./Table";
+import { Table, Td, Th, Tr } from "./table";
 
 export default function SiteTable({ sites }) {
   return (
