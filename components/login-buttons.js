@@ -1,6 +1,7 @@
-import { Button, Flex } from "@chakra-ui/react";
+import { Button, Flex, Text } from "@chakra-ui/react";
 
 import { useAuth } from "@/lib/auth";
+import { BsGithub, BsGoogle } from "react-icons/bs";
 
 export function LoginButtons() {
   const auth = useAuth();
@@ -12,7 +13,6 @@ export function LoginButtons() {
         backgroundColor="gray.900"
         color="white"
         fontWeight="medium"
-        leftIcon="github"
         mt={4}
         mr={2}
         _hover={{ bg: "gray.700" }}
@@ -21,7 +21,8 @@ export function LoginButtons() {
           transform: "scale(0.95)",
         }}
       >
-        Continue with GitHub
+        <BsGithub />
+        <Text ml={2}>Continue with GitHub</Text>
       </Button>
       <Button
         onClick={() => auth.signinWithGoogle()}
@@ -29,7 +30,6 @@ export function LoginButtons() {
         color="gray.900"
         variant="outline"
         fontWeight="medium"
-        leftIcon="google"
         mt={4}
         _hover={{ bg: "gray.100" }}
         _active={{
@@ -37,7 +37,8 @@ export function LoginButtons() {
           transform: "scale(0.95)",
         }}
       >
-        Continue with Google
+        <BsGoogle />
+        <Text ml={2}>Continue with Google</Text>
       </Button>
     </Flex>
   );
