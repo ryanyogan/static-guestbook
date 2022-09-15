@@ -27,7 +27,6 @@ const SiteTableSkeleton = () => {
           <Th>Site Link</Th>
           <Th>Feedback Link</Th>
           <Th>Date Added</Th>
-          <Th>{""}</Th>
         </Tr>
       </thead>
       <tbody>
@@ -35,7 +34,6 @@ const SiteTableSkeleton = () => {
         <SkeletonRow width="125px" />
         <SkeletonRow width="50px" />
         <SkeletonRow width="100px" />
-        <SkeletonRow width="75px" />
       </tbody>
     </Table>
   );

@@ -20,7 +20,7 @@ export default function DashboardShell({ children }) {
 
   return (
     <Box backgroundColor="gray.100" h="100vh">
-      <Flex backgroundColor="white" mb={[8, 16]} w="full">
+      <Flex backgroundColor="white" mb={[8, 16]} w="full" shadow="sm">
         <Flex
           alignItems="center"
           justifyContent="space-between"
@@ -34,9 +34,15 @@ export default function DashboardShell({ children }) {
         >
           <Flex align="center">
             <NextLink href="/" passHref>
-              <Link>
+              <Link mr={8}>
                 <Logo />
               </Link>
+            </NextLink>
+            <NextLink href="/sites" passHref>
+              <Link mr={4}>Sites</Link>
+            </NextLink>
+            <NextLink href="/feedback" passHref>
+              <Link>Feedback</Link>
             </NextLink>
           </Flex>
           <Flex justifyContent="center" alignItems={"center"}>

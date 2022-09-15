@@ -11,7 +11,6 @@ export default function SiteTable({ sites }) {
           <Th>Site Link</Th>
           <Th>Feedback Link</Th>
           <Th>Date Added</Th>
-          <Th>{""}</Th>
         </Tr>
       </thead>
       <tbody>
