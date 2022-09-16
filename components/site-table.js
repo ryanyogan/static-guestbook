@@ -21,7 +21,7 @@ export default function SiteTable({ sites }) {
             <Td>{site.url}</Td>
             <Td>
               <NextLink href="/p/[siteId]" as={`/p/${site.id}`} passHref>
-                <Link color="blue.500" fontWeight="medium">
+                <Link color="blue.600" fontWeight="medium">
                   View Feedback
                 </Link>
               </NextLink>
