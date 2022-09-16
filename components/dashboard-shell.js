@@ -1,23 +1,10 @@
 import { useAuth } from "@/lib/auth";
-import {
-  Avatar,
-  Box,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  Button,
-  Flex,
-  Heading,
-  Link,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Avatar, Box, Button, Flex, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
-import AddSiteModal from "./add-site-modal";
 import Logo from "./logo";
 
 export default function DashboardShell({ children }) {
   const { user, signout } = useAuth();
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Box backgroundColor="gray.100" h="100vh">
@@ -61,20 +48,6 @@ export default function DashboardShell({ children }) {
         </Flex>
       </Flex>
       <Flex margin="0 auto" direction="column" maxW={"1250px"} px={8}>
-        <Breadcrumb>
-          <BreadcrumbItem>
-            <BreadcrumbLink>Sites</BreadcrumbLink>
-          </BreadcrumbItem>
-        </Breadcrumb>
-        <Flex justifyContent="space-between">
-          <Heading mb={8}>My Sites</Heading>
-          <AddSiteModal
-            text="+ Add Site"
-            isOpen={isOpen}
-            onClose={onClose}
-            onOpen={onOpen}
-          />
-        </Flex>
         {children}
       </Flex>
     </Box>

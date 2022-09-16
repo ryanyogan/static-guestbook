@@ -1,6 +1,7 @@
 import DashboardShell from "@/components/dashboard-shell";
 import EmptyState from "@/components/empty-state";
 import SiteTable from "@/components/site-table";
+import SiteTableHeader from "@/components/site-table-header";
 import SiteTableSkeleton from "@/components/site-table-skeleton";
 import useSWR from "swr";
 import { useAuth } from "../lib/auth";
@@ -13,6 +14,7 @@ export default function Dashboard() {
   if (!data) {
     return (
       <DashboardShell>
+        <SiteTableHeader />
         <SiteTableSkeleton />
       </DashboardShell>
     );
@@ -20,6 +22,7 @@ export default function Dashboard() {
 
   return (
     <DashboardShell>
+      <SiteTableHeader />
       {data.sites ? <SiteTable sites={data.sites} /> : <EmptyState />}
     </DashboardShell>
   );

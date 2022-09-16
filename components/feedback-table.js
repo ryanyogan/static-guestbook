@@ -1,7 +1,7 @@
 import { Box, Code } from "@chakra-ui/react";
 import { Table, Td, Th, Tr } from "./table";
 
-export default function FeedbackTable({ allFeedback }) {
+export default function FeedbackTable({ feedback: allFeedback }) {
   return (
     <Table>
       <thead>
@@ -21,6 +21,7 @@ export default function FeedbackTable({ allFeedback }) {
             <Td>
               <Code>/blog</Code>
             </Td>
+            <Td>Switch</Td>
             <Td>Remove</Td>
           </Box>
         ))}
