@@ -19,6 +19,7 @@ export const Td = (props) => (
     p={4}
     borderBottom="1px solid"
     borderBottomColor="gray.100"
+    fontSize="sm"
     {...props}
   />
 );

@@ -1,4 +1,4 @@
-import { Button, Flex, Heading, Text, useDisclosure } from "@chakra-ui/react";
+import { Flex, Heading, Text, useDisclosure } from "@chakra-ui/react";
 import AddSiteModal from "./add-site-modal";
 
 export default function EmptyState() {
@@ -18,10 +18,7 @@ export default function EmptyState() {
         You have not added any sites yet.
       </Heading>
       <Text mb={4}>Welcome 👋🏻 Let&apos;s get started.</Text>
-      <Button onClick={onOpen} fontWeight="medium" maxW="200px">
-        Add Your First Site
-      </Button>
-      <AddSiteModal isOpen={isOpen} onClose={onClose} />
+      <AddSiteModal onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
     </Flex>
   );
 }

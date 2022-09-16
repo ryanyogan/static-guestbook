@@ -61,9 +61,9 @@ export default function AddSiteModal({
     });
 
     mutate(
-      "/api/sites",
+      ["/api/sites", auth.user.token],
       async (data) => ({
-        sites: [{ id, ...newSite }, ...data.sites],
+        sites: [{ id, ...newSite }, ...(data?.sites ?? [])],
       }),
       false
     );

@@ -24,7 +24,7 @@ export default function SiteTable({ sites }) {
                 <Link color="blue.400">View Feedback</Link>
               </NextLink>
             </Td>
-            <Td>{format(parseISO(site.createdAt), "PPpp")}</Td>
+            <Td>{format(parseISO(site.createdAt), "PP")}</Td>
           </Box>
         ))}
       </tbody>
