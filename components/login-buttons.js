@@ -4,12 +4,12 @@ import { useAuth } from "@/lib/auth";
 import { BsGithub, BsGoogle } from "react-icons/bs";
 
 export function LoginButtons() {
-  const auth = useAuth();
+  const { signinWithGithub, signinWithGoogle } = useAuth();
 
   return (
     <Flex direction={["column", "row"]}>
       <Button
-        onClick={() => auth.signinWithGitHub()}
+        onClick={() => signinWithGithub()}
         backgroundColor="gray.900"
         color="white"
         fontWeight="medium"
@@ -25,7 +25,7 @@ export function LoginButtons() {
         <Text ml={2}>Continue with GitHub</Text>
       </Button>
       <Button
-        onClick={() => auth.signinWithGoogle()}
+        onClick={() => signinWithGoogle()}
         backgroundColor="white"
         color="gray.900"
         variant="outline"

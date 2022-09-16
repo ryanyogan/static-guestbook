@@ -5,6 +5,7 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
+  Button,
   Flex,
   Heading,
   Link,
@@ -15,7 +16,7 @@ import AddSiteModal from "./add-site-modal";
 import Logo from "./logo";
 
 export default function DashboardShell({ children }) {
-  const { user } = useAuth();
+  const { user, signout } = useAuth();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -46,6 +47,11 @@ export default function DashboardShell({ children }) {
             </NextLink>
           </Flex>
           <Flex justifyContent="center" alignItems={"center"}>
+            {user && (
+              <Button variant="ghost" mr={2} onClick={() => signout()}>
+                Log Out
+              </Button>
+            )}
             <NextLink href="/account" passHref>
               <Link>
                 <Avatar size="sm" src={user?.photoUrl} />
