@@ -36,7 +36,7 @@ export default function Index() {
           {auth.user ? (
             <Button
               as="a"
-              href="/dashboard"
+              href="/sites"
               backgroundColor="gray.900"
               color="white"
               mt={4}
